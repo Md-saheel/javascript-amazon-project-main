@@ -84,7 +84,7 @@ cart.forEach((cartItem) => {
         <div class="delivery-options-title">
           Choose a delivery option:
         </div>
-        <div class="js-delivery-option">
+        <div>
         <div>
         <div>
         ${deliveryOptionsHTML(matchingProduct, cartItem)}
