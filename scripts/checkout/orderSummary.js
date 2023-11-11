@@ -12,6 +12,7 @@ import {
   deliveryOptions,
   getDeliveryOption,
 } from '../../data/deliveryOptions.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 const today = dayjs();
 const deliveryDate = today.add(7, 'days');
@@ -166,7 +167,7 @@ export function renderOrderSummary() {
 
   document.querySelectorAll('.js-save-link').forEach((link) => {
     link.addEventListener('click', () => {
-      const productId = link.dataset.productId;
+      const { productId } = link.dataset;
 
       const quantityInput = document.querySelector(
         `.js-quantity-input-${productId}`
@@ -199,6 +200,7 @@ export function renderOrderSummary() {
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }
