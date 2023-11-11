@@ -13,6 +13,7 @@ import {
   getDeliveryOption,
 } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 export function renderOrderSummary() {
   let cartSummarytHTML = '';
@@ -130,6 +131,8 @@ export function renderOrderSummary() {
       const { productId } = link.dataset;
       removeFromCart(productId);
 
+      renderCheckoutHeader();
+
       renderOrderSummary();
 
       renderPaymentSummary();
@@ -162,6 +165,10 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-save-link').forEach((link) => {
     link.addEventListener('click', () => {
       const { productId } = link.dataset;
+
+      updateCartQuantity();
+
+      renderCheckoutHeader();
 
       // location.reload();
 
@@ -197,6 +204,7 @@ export function renderOrderSummary() {
     element.addEventListener('click', () => {
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
+
       renderOrderSummary();
       renderPaymentSummary();
     });
