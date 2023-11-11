@@ -170,7 +170,7 @@ export function renderOrderSummary() {
 
       renderCheckoutHeader();
 
-      // location.reload();
+      location.reload();
 
       // renderPaymentSummary() won't work;
 
