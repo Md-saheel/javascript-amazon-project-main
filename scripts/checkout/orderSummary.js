@@ -163,6 +163,10 @@ export function renderOrderSummary() {
     link.addEventListener('click', () => {
       const { productId } = link.dataset;
 
+      // location.reload();
+
+      // renderPaymentSummary() won't work;
+
       const quantityInput = document.querySelector(
         `.js-quantity-input-${productId}`
       );
