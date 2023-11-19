@@ -166,13 +166,7 @@ export function renderOrderSummary() {
     link.addEventListener('click', () => {
       const { productId } = link.dataset;
 
-      updateCartQuantity();
-
       renderCheckoutHeader();
-
-      location.reload();
-
-      // renderPaymentSummary() won't work;
 
       const quantityInput = document.querySelector(
         `.js-quantity-input-${productId}`
@@ -197,6 +191,8 @@ export function renderOrderSummary() {
       quantityLabel.innerHTML = newQuantity;
 
       updateCartQuantity();
+
+      renderPaymentSummary();
     });
   });
 
